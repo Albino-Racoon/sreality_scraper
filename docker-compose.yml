@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/scraper
+    command: scrapy crawl sreality_scraper
+
+  db:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=scraper
