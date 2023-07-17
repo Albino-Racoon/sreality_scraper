@@ -1,0 +1,12 @@
+setup.py
+sreality_project/__init__.py
+sreality_project/items.py
+sreality_project/middlewares.py
+sreality_project/pipelines.py
+sreality_project/settings.py
+sreality_project.egg-info/PKG-INFO
+sreality_project.egg-info/SOURCES.txt
+sreality_project.egg-info/dependency_links.txt
+sreality_project.egg-info/top_level.txt
+sreality_project/spiders/__init__.py
+sreality_project/spiders/sreality_scraper.py

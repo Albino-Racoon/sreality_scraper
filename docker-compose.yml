@@ -1,21 +1,19 @@
-version: "3"
+version: '3'
 
 services:
-  scraper:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  web:
+    build: .
+    ports:
+      - 8080:3000
     depends_on:
       - db
-    links:
-      - db
-    environment:
-      - DATABASE_URL=postgresql://postgres:password@db:5432/scraper
-    command: scrapy crawl sreality_scraper
 
   db:
-    image: postgres:12-alpine
+    image: postgres
+    restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=scraper
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: jasajernej
+    ports:
+      - 5436:5432
